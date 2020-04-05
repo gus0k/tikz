@@ -1,0 +1,100 @@
+\begin{tikzpicture}
+
+%\draw[black!10, very thin] (-3,-3) grid (15, 15);
+    \tikzstyle{hand} = []
+%[decorate, decoration={random steps,segment
+
+%length=1pt,amplitude=0.2pt}];
+
+
+\begin{scope}
+\draw[fill=red!10] (2,2) rectangle (10, 6);
+\node[alice, scale=3] (T) at (9, 5) {};
+
+\node at (6, 5.5) {\bf COST = $\beta$};
+
+\draw[->, hand, very thick] (3,3) -- ++ (5, 0);
+\draw[->, hand, very thick] (3.5,2.5) -- ++ (0, 3);
+
+\node[scale=2] at (3, 5) {\faPlug};
+\node[scale=2] at (3, 4.2) {\faTelevision};
+\node[scale=2] at (3, 3.5) {\faLightbulbO};
+
+\node[scale=2] at (5.5, 2.5) {\faClockO};
+
+\draw[hand, very thick, blue, rounded corners] (3.5,3) 
+    -- ++(1, 1)
+    -- ++(1, -0.5) 
+    -- ++ (0.5, 0)
+    -- ++(1, 0.3)
+    -- ++(0.5, -0.7);
+
+\end{scope}
+
+\begin{scope}[yshift=4.5cm]
+\draw[fill=red!10] (2,2) rectangle (10, 6);
+\node[bob, scale=3] (T) at (9, 5) {};
+
+\node at (6, 5.5) {\bf COST = $\alpha$};
+
+\draw[->, hand, very thick] (3,3) -- ++ (5, 0);
+\draw[->, hand, very thick] (3.5,2.5) -- ++ (0, 3);
+
+\node[scale=2] at (3, 5) {\faPlug};
+\node[scale=2] at (3, 4.2) {\faTelevision};
+\node[scale=2] at (3, 3.5) {\faLightbulbO};
+
+\node[scale=2] at (5.5, 2.5) {\faClockO};
+
+\draw[hand, very thick, blue, rounded corners] (3.5,3) 
+    -- ++(1, -1)
+    -- ++(1, +1.2) 
+    -- ++ (0.5, 0)
+    -- ++(1, 0.3)
+    -- ++(0.5, -0.5);
+
+\end{scope}
+
+
+%\draw[fill=green!30, fill opacity=0.3] (2.5, -5) rectangle (8.5, 11);
+
+\draw[thick, double] (2, 1.7) -- (10, 1.7);
+
+
+\begin{scope}[yshift=-4.5cm]
+\draw[fill=green!10] (2,2) rectangle (10, 6);
+\node[alice, scale=3] (T) at (9, 5) {};
+\node[bob, scale=3] (T) at (8.5, 5) {};
+
+\node at (6, 5.5) {\bf COST = $\gamma < $ $\alpha + \beta$ };
+
+\draw[->, hand, very thick] (3,3) -- ++ (5, 0);
+\draw[->, hand, very thick] (3.5,2.5) -- ++ (0, 3);
+
+\node[scale=2] at (3, 5) {\faPlug};
+\node[scale=2] at (3, 4.2) {\faTelevision};
+\node[scale=2] at (3, 3.5) {\faLightbulbO};
+
+\node[scale=2] at (5.5, 2.5) {\faClockO};
+
+\draw[hand, very thick, blue, rounded corners] (3.5,3) 
+    -- ++(1, 0)
+    -- ++(1, 0.7) 
+    -- ++ (0.5, 0)
+    -- ++(1, 0.6)
+    -- ++(0.5, -1.2);
+
+\end{scope}
+
+\node[draw, fill=red!10, rectangle, label=east:Original Tariff, minimum width=1cm, minimum
+    height=1cm] at (2.5, 12.5) {};
+\node[draw, fill=green!10, rectangle, label=east:New Collaborative Tariff, minimum width=1cm, minimum
+    height=1cm] at (2.5, 11.5) {};
+
+\draw[very thick, red] (5.75, 6.5) -- ++(0, -0.5);
+\draw[very thick, red] (5.5, 6.25) -- ++(0.5, 0);
+
+\node[align=left] at (6, -3) {Boosted by local generation, batteries \\ and well
+        designed sharing mechanisms};
+
+\end{tikzpicture}

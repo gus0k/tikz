@@ -1,0 +1,84 @@
+\begin{tikzpicture}[scale=1]
+
+\tikzmath{%
+\x = 3;
+\y = \x * 0.5;
+\sep = 0.3;
+\side=16;
+\center= int(\side * 0.5);
+};
+    
+%\draw[very thin, gray!20] (0,0) grid (30, 30);
+
+\begin{scope}[xshift=10.9cm, yshift=8cm]
+
+\node[
+    draw,
+    rectangle,
+    minimum width=\x cm,
+    minimum height=\x cm,
+    ] (sq) at (2, 5) {};
+
+\node[
+    draw,
+    fill=red!50!blue!50,
+    minimum width=\y cm,
+    circle,
+    ] at (sq) {};
+
+\end{scope}
+
+\node at (7.3, 10.5) {\Huge R};
+\node at (13, 10.5) {\Huge G};
+\node at (18, 10.5) {\Huge B};
+
+\begin{scope}[xshift=5cm, yshift=5cm]
+\foreach \aa in {0, ..., \side} \foreach \bb in {0, ..., \side}
+{
+    \pgfmathparse{ int(sqrt((\aa -\center)^2 + (\bb - \center)^2)) < 6 ? "red" : "white"};
+    \edef\colour{\pgfmathresult}
+        \node[
+            fill=\colour,
+            draw,
+            rectangle,
+            minimum width=0.05cm,
+            minimum height=0.05cm,
+            ] at (\aa * \sep, \bb * \sep) {};
+
+}
+\end{scope}
+
+\begin{scope}[xshift=10.5cm, yshift=5cm]
+\foreach \aa in {0, ..., \side} \foreach \bb in {0, ..., \side}
+{
+    \pgfmathparse{ int(sqrt((\aa -\center)^2 + (\bb - \center)^2)) < 6 ? "white" : "white"};
+    \edef\colour{\pgfmathresult}
+        \node[
+            fill=\colour,
+            draw,
+            rectangle,
+            minimum width=0.05cm,
+            minimum height=0.05cm,
+            ] at (\aa * \sep, \bb * \sep) {};
+
+}
+\end{scope}
+
+\begin{scope}[xshift=16cm, yshift=5cm]
+\foreach \aa in {0, ..., \side} \foreach \bb in {0, ..., \side}
+{
+    \pgfmathparse{ int(sqrt((\aa -\center)^2 + (\bb - \center)^2)) < 6 ? "blue" : "white"};
+    \edef\colour{\pgfmathresult}
+        \node[
+            fill=\colour,
+            draw,
+            rectangle,
+            minimum width=0.05cm,
+            minimum height=0.05cm,
+            ] at (\aa * \sep, \bb * \sep) {};
+
+}
+\end{scope}
+
+\end{tikzpicture}
+
